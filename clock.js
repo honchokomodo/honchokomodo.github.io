@@ -13,6 +13,7 @@ var goal = Math.random() * two_pi;
 var press = false;
 var alrpress = false;
 var score = 0;
+var tops = 0;
 
 function drawArc(x, y, r1, r2, radius, width, color) {
   ctx.strokeStyle = color;
@@ -48,6 +49,14 @@ function drawFrame() {
   vecX = Math.cos(rot);
   vecY = Math.sin(rot);
   
+  ctx.clearRect(0, 0, myCanvas.width, myCanvas.height);
+  drawArc(centerX, centerY, 0, two_pi, radius, 2, "#FFF");
+  drawArc(centerX, centerY, goal-0.1, goal+0.1, radius*1.15, 2, "#0F0");
+  drawLine(centerX+radius*1.05*vecX, centerY+radius*1.05*vecY, centerX+radius*1.25*vecX, centerY+radius*1.25*vecY, 2, "#FFF");
+  ctx.fillStyle = "#FFF";
+  ctx.fillText("score: "+score, 10, 20);
+  ctx.fillText("session high score: "+tops, 10, 30);
+  
   if (press && !alrpress) {
     goalX = Math.cos(goal);
     goalY = Math.sin(goal);
@@ -58,15 +67,9 @@ function drawFrame() {
     }
     score++;
     goal = Math.random() * two_pi;
+    tops = Math.max(tops, score)
   }
   alrpress = press;
-  
-  ctx.clearRect(0, 0, myCanvas.width, myCanvas.height);
-  drawArc(centerX, centerY, 0, two_pi, radius, 2, "#FFF");
-  drawArc(centerX, centerY, goal-0.1, goal+0.1, radius*1.15, 2, "#0F0");
-  drawLine(centerX+radius*1.05*vecX, centerY+radius*1.05*vecY, centerX+radius*1.25*vecX, centerY+radius*1.25*vecY, 2, "#FFF");
-  ctx.fillStyle = "#FFF";
-  ctx.fillText("score: "+score, 10, 20);
 }
 
 setInterval(drawFrame, 1000/60);
