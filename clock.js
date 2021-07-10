@@ -34,6 +34,8 @@ function drawLine(x1, y1, x2, y2, width, color) {
 
 function ui_mouseup(MyEvent) {if (MyEvent.which == 1) {press = false;}}
 function ui_mousedown(MyEvent) {if (MyEvent.which == 1) {press = true;}}
+function ui_touchend(MyEvent) {if (MyEvent.which == 1) {press = false;}}
+function ui_touchstart(MyEvent) {if (MyEvent.which == 1) {press = true;}}
 
 function drawFrame() {
   if (lose) {
@@ -75,3 +77,5 @@ function drawFrame() {
 setInterval(drawFrame, 1000/60);
 myCanvas.addEventListener("mouseup", ui_mouseup);
 myCanvas.addEventListener("mousedown", ui_mousedown);
+myCanvas.addEventListener("touchend", ui_touchend);
+myCanvas.addEventListener("touchstart", ui_touchstart);
