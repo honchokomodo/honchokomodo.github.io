@@ -1,6 +1,7 @@
 var c = document.getElementById("myCanvas");
 var ctx = c.getContext("2d");
 
+var top = 0;
 var lose = false;
 var width = myCanvas.width;
 var height = myCanvas.height;
@@ -54,6 +55,7 @@ function drawFrame() {
   drawLine(centerX+radius*1.05*vecX, centerY+radius*1.05*vecY, centerX+radius*1.25*vecX, centerY+radius*1.25*vecY, 2, "#FFF");
   ctx.fillStyle = "#FFF";
   ctx.fillText("score: "+score, 10, 20);
+  ctx.fillText("top: "+top, 10, 30);
   
   if (press && !alrpress) {
     goalX = Math.cos(goal);
@@ -65,6 +67,9 @@ function drawFrame() {
     }
     score++;
     goal = Math.random() * two_pi;
+    if (top < score) {
+      top = score;
+    }
   }
   alrpress = press;
 }
