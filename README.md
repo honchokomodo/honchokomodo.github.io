@@ -1,2 +1,2 @@
 # honchokomodo.github.io
-i will probably put socials here
+i dont know what i will do here

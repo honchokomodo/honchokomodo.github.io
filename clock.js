@@ -1,6 +1,7 @@
 var c = document.getElementById("myCanvas");
 var ctx = c.getContext("2d");
 
+var top = 0;
 var lose = false;
 var width = myCanvas.width;
 var height = myCanvas.height;
@@ -56,6 +57,7 @@ function drawFrame() {
   ctx.fillStyle = "#FFF";
   ctx.fillText("score: "+score, 10, 20);
   ctx.fillText("session high score: "+tops, 10, 30);
+  ctx.fillText("top: "+top, 10, 30);
   
   if (press && !alrpress) {
     goalX = Math.cos(goal);
@@ -68,6 +70,9 @@ function drawFrame() {
     score++;
     goal = Math.random() * two_pi;
     tops = Math.max(tops, score)
+    if (top < score) {
+      top = score;
+    }
   }
   alrpress = press;
 }
