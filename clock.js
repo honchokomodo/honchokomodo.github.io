@@ -48,6 +48,13 @@ function drawFrame() {
   vecX = Math.cos(rot);
   vecY = Math.sin(rot);
   
+  ctx.clearRect(0, 0, myCanvas.width, myCanvas.height);
+  drawArc(centerX, centerY, 0, two_pi, radius, 2, "#FFF");
+  drawArc(centerX, centerY, goal-0.1, goal+0.1, radius*1.15, 2, "#0F0");
+  drawLine(centerX+radius*1.05*vecX, centerY+radius*1.05*vecY, centerX+radius*1.25*vecX, centerY+radius*1.25*vecY, 2, "#FFF");
+  ctx.fillStyle = "#FFF";
+  ctx.fillText("score: "+score, 10, 20);
+  
   if (press && !alrpress) {
     goalX = Math.cos(goal);
     goalY = Math.sin(goal);
@@ -60,13 +67,6 @@ function drawFrame() {
     goal = Math.random() * two_pi;
   }
   alrpress = press;
-  
-  ctx.clearRect(0, 0, myCanvas.width, myCanvas.height);
-  drawArc(centerX, centerY, 0, two_pi, radius, 2, "#FFF");
-  drawArc(centerX, centerY, goal-0.1, goal+0.1, radius*1.15, 2, "#0F0");
-  drawLine(centerX+radius*1.05*vecX, centerY+radius*1.05*vecY, centerX+radius*1.25*vecX, centerY+radius*1.25*vecY, 2, "#FFF");
-  ctx.fillStyle = "#FFF";
-  ctx.fillText("score: "+score, 10, 20);
 }
 
 setInterval(drawFrame, 1000/60);
