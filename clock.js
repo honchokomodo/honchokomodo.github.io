@@ -37,6 +37,7 @@ myCanvas.addEventListener("pointerdown", function(MyEvent) {
     var goalY = Math.sin(goal);
     if (Math.pow(handX-goalX, 2)+Math.pow(handY-goalY, 2) > 0.0169) {
       lose = true;
+	  alert("you lost score: "+score+"")
       return;
     }
     score++;
