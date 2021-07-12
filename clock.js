@@ -64,8 +64,9 @@ function drawFrame() {
   drawArc(centerX, centerY, goal-0.1, goal+0.1, radius*1.15, 2, "#0F0");
   drawLine(centerX+radius*1.05*vecX, centerY+radius*1.05*vecY, centerX+radius*1.25*vecX, centerY+radius*1.25*vecY, 2, "#FFF");
   ctx.fillStyle = "#FFF";
+  ctx.font = "18px consolas"
   ctx.fillText("score: "+score, 10, 20);
-  ctx.fillText("session high score: "+tops, 10, 30);
+  ctx.fillText("session high score: "+tops, 10, 38);
 }
 
 setInterval(drawFrame, 1000/60);
