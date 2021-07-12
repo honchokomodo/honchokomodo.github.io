@@ -62,11 +62,11 @@ setInterval(function() {
   ctx.clearRect(0, 0, width, height);
   ctx.fillStyle = "#000";
   ctx.fillRect(0, 0, width, height);
-  drawArc(centerX, centerY, 0, two_pi, radius, 2, "#FFF");
-  drawArc(centerX, centerY, goal-0.1, goal+0.1, radius*1.15, 2, "#0F0");
-  drawLine(centerX+radius*1.05*vecX, centerY+radius*1.05*vecY, centerX+radius*1.25*vecX, centerY+radius*1.25*vecY, 2, "#FFF");
+  drawArc(centerX, centerY, 0, two_pi, radius, 4, "#FFF");
+  drawArc(centerX, centerY, goal-0.1, goal+0.1, radius*1.15, 4, "#0F0");
+  drawLine(centerX+radius*1.05*vecX, centerY+radius*1.05*vecY, centerX+radius*1.25*vecX, centerY+radius*1.25*vecY, 4, "#FFF");
   ctx.fillStyle = "#FFF";
-  ctx.font = "18px consolas"
-  ctx.fillText("score: "+score, 10, 20);
-  ctx.fillText("high score: "+tops, 10, 38);
+  ctx.font = "32px consolas"
+  ctx.fillText("score: "+score, 10, 32);
+  ctx.fillText("high score: "+tops, 10, 64);
 }, 1000/60);
