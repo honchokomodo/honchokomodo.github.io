@@ -1,38 +1,6 @@
 <!DOCTYPE html>
-<body style="background-color: black;color: white">
+<body style="background-color: #000;color: #FFF">
   <p>i will probably do something here later</p>
   <p>while you wait enjoy this little game i made</p>
-  <button id="biggerx">increase width</button>
-  <button id="biggery">increase height</button>
-  <br>
-  <button id="smallerx">decrease width</button>
-  <button id="smallery">decrease height</button>
-  <br>
-  <button id="square">make it square</button>
-  <br>
-  <button id="fillscreen">fill the screen</button>
-  <script>
-    biggerx.addEventListener("click", function() {
-      myCanvas.width = Math.max(32, myCanvas.width + 16);
-    });
-    biggery.addEventListener("click", function() {
-	  myCanvas.height = Math.max(32, myCanvas.height + 16);
-	});
-	smallerx.addEventListener("click", function() {
-      myCanvas.width = Math.max(32, myCanvas.width - 16);
-    });
-    smallery.addEventListener("click", function() {
-	  myCanvas.height = Math.max(32, myCanvas.height - 16);
-	});
-	square.addEventListener("click", function() {
-	  myCanvas.height = myCanvas.width;
-	});
-	fillscreen.addEventListener("click", function() {
-	  myCanvas.width = window.innerWidth;
-	  myCanvas.height = window.innerHeight;
-	});
-  </script>
-  <br>
-  <canvas id="myCanvas" width="512" height="512" style="border:1px solid #FFF;">if it doesnt work then you might need to enable javascript because i coded it in js</canvas>
-  <script src="clock.js"></script>
+  <a href="clock.html" style="background-color: #888">click here to play it</a>
 </body>

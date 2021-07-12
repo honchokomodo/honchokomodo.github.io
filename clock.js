@@ -23,7 +23,7 @@ function drawLine(x1, y1, x2, y2, width, color) {
   ctx.stroke();
 }
 
-function ui_mousedown(MyEvent) {
+myCanvas.addEventListener("pointerdown", function(MyEvent) {
   if (MyEvent.which == 1) {
     if (lose) {
       score = 0;
@@ -43,13 +43,13 @@ function ui_mousedown(MyEvent) {
     goal = Math.random() * two_pi;
     tops = Math.max(tops, score);
   }
-}
+});
 
-function drawFrame() {
-  if (lose) {
-    return;
-  }
+setInterval(function() {
+  if (lose) {return;}
   
+  myCanvas.width = window.innerWidth - 16;
+  myCanvas.height = window.innerHeight - 40;
   var width = myCanvas.width;
   var height = myCanvas.height;
   var centerX = width/2;
@@ -57,17 +57,16 @@ function drawFrame() {
   var radius = Math.min(width, height) / 3;
   var vecX = Math.cos(rot);
   var vecY = Math.sin(rot);
-  rot = (rot + 0.01 * Math.pow(1.05, score) * (score%2*2-1)) % two_pi;
+  rot = (rot+0.01*Math.pow(1.05, score) * (score%2*2-1)) % two_pi;
   
   ctx.clearRect(0, 0, width, height);
+  ctx.fillStyle = "#000";
+  ctx.fillRect(0, 0, width, height);
   drawArc(centerX, centerY, 0, two_pi, radius, 2, "#FFF");
   drawArc(centerX, centerY, goal-0.1, goal+0.1, radius*1.15, 2, "#0F0");
   drawLine(centerX+radius*1.05*vecX, centerY+radius*1.05*vecY, centerX+radius*1.25*vecX, centerY+radius*1.25*vecY, 2, "#FFF");
   ctx.fillStyle = "#FFF";
   ctx.font = "18px consolas"
   ctx.fillText("score: "+score, 10, 20);
-  ctx.fillText("session high score: "+tops, 10, 38);
-}
-
-setInterval(drawFrame, 1000/60);
-myCanvas.addEventListener("pointerdown", ui_mousedown);
+  ctx.fillText("high score: "+tops, 10, 38);
+}, 1000/60);
