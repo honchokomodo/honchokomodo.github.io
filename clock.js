@@ -1,4 +1,4 @@
-var ctx = document.getElementById("myCanvas").getContext("2d");
+var ctx = document.getElementById("clockCanvas").getContext("2d");
 var lose = false;
 var rot = 0
 var two_pi = 2 * Math.PI;
@@ -23,7 +23,7 @@ function drawLine(x1, y1, x2, y2, width, color) {
   ctx.stroke();
 }
 
-myCanvas.addEventListener("pointerdown", function(MyEvent) {
+clockCanvas.addEventListener("pointerdown", function(MyEvent) {
   if (MyEvent.which == 1) {
     if (lose) {
       score = 0;
@@ -49,10 +49,10 @@ myCanvas.addEventListener("pointerdown", function(MyEvent) {
 setInterval(function() {
   if (lose) {return;}
   
-  myCanvas.width = window.innerWidth - 16;
-  myCanvas.height = window.innerHeight - 40;
-  var width = myCanvas.width;
-  var height = myCanvas.height;
+  clockCanvas.width = window.innerWidth - 16;
+  clockCanvas.height = window.innerHeight - 40;
+  var width = clockCanvas.width;
+  var height = clockCanvas.height;
   var centerX = width/2;
   var centerY = height/2;
   var radius = Math.min(width, height) / 3;
