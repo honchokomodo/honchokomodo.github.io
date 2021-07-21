@@ -1,11 +1,11 @@
 var ctx = document.getElementById("clockCanvas").getContext("2d");
-var lose = false;
-var rot = 0
-var two_pi = 2 * Math.PI;
-var goal = Math.random() * two_pi;
-var score = 0;
-var tops = 0;
-var pflag = false;
+let lose = false;
+let rot = 0
+let two_pi = 2 * Math.PI;
+let goal = Math.random() * two_pi;
+let score = 0;
+let tops = 0;
+let pflag = false;
 
 function drawArc(x, y, r1, r2, radius, width, color) {
   ctx.strokeStyle = color;
@@ -24,24 +24,16 @@ function drawLine(x1, y1, x2, y2, width, color) {
   ctx.stroke();
 }
 
-clockCanvas.addEventListener("pointerdown", function(MyEvent) {
-  if (MyEvent.which == 1) {
-    pflag = true;
-  }
-});
-
-setInterval(function() {
-  rot = (rot+0.01*Math.pow(1.05, score) * (score%2*2-1) * !lose) % two_pi;
+setInterval(() => {
   clockCanvas.width = window.innerWidth - 16;
   clockCanvas.height = window.innerHeight - 40;
-  var width = clockCanvas.width;
-  var height = clockCanvas.height;
-  var centerX = width/2;
-  var centerY = height/2;
-  var radius = Math.min(width, height) / 3;
-  var vecX = Math.cos(rot);
-  var vecY = Math.sin(rot);
-  
+  let width = clockCanvas.width;
+  let height = clockCanvas.height;
+  let centerX = width/2;
+  let centerY = height/2;
+  let radius = Math.min(width, height) / 3;
+  let vecX = Math.cos(rot);
+  let vecY = Math.sin(rot);
   ctx.clearRect(0, 0, width, height);
   ctx.fillStyle = "#000";
   ctx.fillRect(0, 0, width, height);
@@ -60,10 +52,10 @@ setInterval(function() {
       lose = false;
       return;
     }
-    var handX = Math.cos(rot);
-    var handY = Math.sin(rot);
-    var goalX = Math.cos(goal);
-    var goalY = Math.sin(goal);
+    let handX = Math.cos(rot);
+    let handY = Math.sin(rot);
+    let goalX = Math.cos(goal);
+    let goalY = Math.sin(goal);
     if (Math.pow(handX-goalX, 2)+Math.pow(handY-goalY, 2) > 0.0169) {
       lose = true;
       alert("you lost score: "+score);
@@ -73,4 +65,8 @@ setInterval(function() {
     goal = Math.random() * two_pi;
     tops = Math.max(tops, score);
   }
+
+  rot = (rot+0.01*Math.pow(1.05, score) * (score%2*2-1) * !lose) % two_pi;
 }, 1000/60);
+
+clockCanvas.addEventListener("pointerdown", () => {pflag = true});
