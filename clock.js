@@ -25,8 +25,8 @@ function drawLine(x1, y1, x2, y2, width, color) {
 }
 
 setInterval(() => {
-  clockCanvas.width = window.innerWidth-16;
-  clockCanvas.height = window.innerHeight-40;
+  clockCanvas.width = window.innerWidth;
+  clockCanvas.height = window.innerHeight;
   let width = clockCanvas.width;
   let height = clockCanvas.height;
   let cenX = width/2;

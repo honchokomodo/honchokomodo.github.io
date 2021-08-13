@@ -1,6 +1,18 @@
 <!DOCTYPE html>
-<body style="background-color: #888">
-  <a href="index.html">click here to go back</a>
-  <canvas id="clockCanvas" width="512" height="512">if it doesnt work then you might need to enable javascript because i coded it in js</canvas>
-  <script src="clock.js"></script>
-</body>
+<style>
+* {
+  margin: 0;
+  padding: 0;
+}
+
+body, html {
+  height:100%;
+}
+
+canvas {
+  position:absolute;
+  height:100%; width:100%;
+}
+</style>
+<canvas id="clockCanvas" width="512" height="512">if it doesnt work then you might need to enable javascript because i coded it in js</canvas>
+<script src="clock.js"></script>
