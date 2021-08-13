@@ -1,0 +1,19 @@
+body {
+  background-color: #000;
+  color: #888;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: auto auto;
+  grid-gap: 10px;
+}
+
+.grid-item {
+  font-size: 40px;
+  padding: 20px;
+  background-color: #222;
+  text-align: center;
+  border: 1px solid #888;
+  border-radius: 10px;
+}
