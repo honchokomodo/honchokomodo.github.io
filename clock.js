@@ -70,3 +70,4 @@ setInterval(() => {
 }, 1000/60);
 
 clockCanvas.addEventListener("pointerdown", () => {pflag = true});
+clockCanvas.addEventListener("keydown", () => {pflag = true});
